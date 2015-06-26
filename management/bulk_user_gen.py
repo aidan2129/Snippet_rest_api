@@ -4,10 +4,14 @@ from django.contrib.auth.models import User
 import names
 users = []
 
-for i in range(100):
+number = raw_input("How many users should be generated? ")
+
+print "Generating users...."
+
+for i in range(int(number)):
     user = User(first_name=names.get_first_name(), 
                 last_name=names.get_last_name(),
-                username=names.get_first_name() + '%d' % i,
+                username=names.get_first_name() + '%d' % int(random.randrange(1000)),
                 email='%s@mydomain.com' % names.get_first_name(),
                 password='test',
                 is_active=True, )
