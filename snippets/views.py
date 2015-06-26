@@ -25,6 +25,7 @@ class UserViewSet(viewsets.ReadOnlyModelViewSet):
     """
     queryset = User.objects.all()
     serializer_class = UserSerializer
+    lookup_field = "username"
 
 class SnippetViewSet(viewsets.ModelViewSet):
     """

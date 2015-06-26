@@ -6,7 +6,6 @@ from django.contrib.auth.models import User
 class SnippetSerializer(serializers.HyperlinkedModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
     highlight = serializers.HyperlinkedIdentityField(view_name='snippet-highlight', format='html')
-
     class Meta:
         model = Snippet
         fields = ('url', 'highlight', 'owner',
@@ -18,4 +17,5 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = User
+        lookup_field='username'
         fields = ('url', 'username', 'snippets')
